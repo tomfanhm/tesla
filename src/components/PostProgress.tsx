@@ -16,7 +16,7 @@ const PostProgress: React.FC = () => {
   return (
     <Effects disableGamma>
       {/* threshhold = 1, nothing bloom, default */}
-      <unrealBloomPass threshold={1} strength={5} radius={1} />
+      <unrealBloomPass threshold={1} strength={1} radius={0.5} />
     </Effects>
   );
 };

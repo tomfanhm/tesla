@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
-import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import React, { Fragment, useRef } from "react";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { useControls } from "leva";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
+import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 
 const focusCar = new THREE.Vector3(3, 3, 3);
 const focusLCD = new THREE.Vector3(0, 1, 0.2);
@@ -41,7 +41,7 @@ const CameraAndControls: React.FC = () => {
   });
 
   return (
-    <>
+    <Fragment>
       <PerspectiveCamera
         makeDefault
         fov={75}
@@ -54,7 +54,7 @@ const CameraAndControls: React.FC = () => {
         makeDefault
         ref={control}
       />
-    </>
+    </Fragment>
   );
 };
 export default CameraAndControls;

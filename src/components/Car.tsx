@@ -1,6 +1,6 @@
+import React, { useEffect, useRef } from "react";
 import { useGLTF, useVideoTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 const lightingMeshKey = [
@@ -47,7 +47,7 @@ const Car: React.FC = () => {
 
   useEffect(() => {
     if (gltf) {
-      //re-size
+      // Re-size
       gltf.scene.scale.set(0.01, 0.01, 0.01);
       gltf.scene.position.set(0, 0.84, 0);
       gltf.scene.rotation.set(0, Math.PI, 0);
@@ -58,7 +58,7 @@ const Car: React.FC = () => {
           object.material.envMapIntensity = 10;
         }
       });
-      //set grow items
+      // Set grow items
       const lightingMesh = lightingMeshKey.map((key) =>
         findNode<THREE.Mesh | THREE.Object3D>(gltf.scene, key)
       );
@@ -100,7 +100,7 @@ const Car: React.FC = () => {
         gltf.scene.children[0].children[0].children[0].children[0].children[7]
           .children[1];
       const speed = -2 * elapsed;
-      //Wheel
+      // Wheel
       frontWheel.children.forEach((element) => {
         element.rotation.x = speed;
       });

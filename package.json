@@ -1,8 +1,17 @@
 {
   "name": "my-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "This project is a small React application showcasing a Tesla Model 3, utilizing the React Three Fiber library for rendering 3D objects. The Tesla car model is enhanced with a bloom effect and custom lighting to provide a visually stunning experience.",
+  "keywords": [
+    "react",
+    "threejs",
+    "react-three-fiber",
+    "react-three-drei",
+    "typescript",
+    "vite"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -20,6 +29,7 @@
     "three-stdlib": "^2.21.5"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",

@@ -8,7 +8,7 @@ This project is a small React application showcasing a Tesla Model 3, utilizing 
 + Bloom effect
 + Custom lighting
 
-![screenshot](/Screenshot.png)
+![screenshot](./public/screenshot.png)
 
 ## 📜 Model Information and License
 + Title: Tesla 2018 Model 3

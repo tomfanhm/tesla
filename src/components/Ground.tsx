@@ -1,7 +1,7 @@
+import React, { useLayoutEffect } from "react";
 import { MeshReflectorMaterial, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import React, { useLayoutEffect } from "react";
-import { LinearEncoding, RepeatWrapping } from "three";
+import { RepeatWrapping } from "three";
 
 const Ground: React.FC = () => {
   const [normal, rough] = useTexture([
@@ -14,7 +14,6 @@ const Ground: React.FC = () => {
       texture.wrapS = RepeatWrapping;
       texture.wrapT = RepeatWrapping;
       texture.repeat.set(10, 10);
-      rough.encoding = LinearEncoding;
     });
   }, [normal, rough]);
 
@@ -38,10 +37,10 @@ const Ground: React.FC = () => {
         color={[0, 0, 0]}
         roughness={1}
         blur={[99, 99]}
-        mixBlur={99} //模糊強度
-        mixStrength={99} //反射強度
-        mixContrast={1} //反射對比度
-        resolution={1024} //分辨率
+        mixBlur={99} // 模糊強度
+        mixStrength={99} // 反射強度
+        mixContrast={1} // 反射對比度
+        resolution={1024} // 分辨率
         mirror={0}
         depthScale={0.01}
         minDepthThreshold={0.9}

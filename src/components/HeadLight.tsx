@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 import * as THREE from "three";
 
 const HeadLight: React.FC = () => {
@@ -15,7 +15,7 @@ const HeadLight: React.FC = () => {
     }
   }, []);
   return (
-    <>
+    <Fragment>
       <spotLight
         color={[1, 1, 1]}
         intensity={50}
@@ -35,7 +35,7 @@ const HeadLight: React.FC = () => {
         castShadow
         ref={light2}
       />
-    </>
+    </Fragment>
   );
 };
 

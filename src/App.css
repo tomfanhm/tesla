@@ -15,8 +15,8 @@ body {
 }
 
 .spinner {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   background: linear-gradient(90deg, #009fff, #ec2f4b);
   border-radius: 50%;
   position: relative;
