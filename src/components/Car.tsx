@@ -17,22 +17,21 @@ const lightingMeshKey = [
   "light_breake_breaklight_l_0",
 ];
 
-interface Node<T> {
-  name: string;
-  children: T[];
-}
+function findNode(
+  object: THREE.Object3D,
+  name: string
+): THREE.Object3D | undefined {
+  if (object.name === name) {
+    return object;
+  }
 
-function findNode<T extends Node<T>>(data: T, name: string): T | undefined {
-  return data.children.reduce((res: T | undefined, d: T) => {
-    if (res) {
-      return res;
+  for (const child of object.children) {
+    const result = findNode(child, name);
+    if (result) {
+      return result;
     }
-    if (d.name === name) {
-      return d;
-    }
-
-    return findNode(d, name);
-  }, undefined);
+  }
+  return undefined;
 }
 
 const Car: React.FC = () => {
@@ -60,7 +59,7 @@ const Car: React.FC = () => {
       });
       // Set grow items
       const lightingMesh = lightingMeshKey.map((key) =>
-        findNode<THREE.Mesh | THREE.Object3D>(gltf.scene, key)
+        findNode(gltf.scene, key)
       );
       lightingMesh
         .flatMap((f) => (f ? [f] : []))
@@ -77,10 +76,7 @@ const Car: React.FC = () => {
 
   useEffect(() => {
     if (gltf && texture) {
-      const LCD = findNode<THREE.Mesh | THREE.Object3D>(
-        gltf.scene,
-        "LCDs_LCDs0_0"
-      );
+      const LCD = findNode(gltf.scene, "LCDs_LCDs0_0");
       if (LCD instanceof THREE.Mesh) {
         LCD.material = new THREE.MeshBasicMaterial();
         LCD.material.map = texture;
